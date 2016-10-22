@@ -3,6 +3,9 @@
 
 # The host to bind the server to.
 # server.host: "0.0.0.0"
+<% if @server_host %>
+<%= "server.host: #{@server_host}" %>
+<% end %>
 
 # If you are running kibana behind a proxy, and want to mount it at a path,
 # specify that path here. The basePath can't end in a slash.

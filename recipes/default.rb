@@ -27,6 +27,7 @@ template '/opt/kibana/config/kibana.yml' do
   group 'root'
   mode '0664'
   variables({
+    :server_host => node.combined_default['festival-kibana']['server.host'],
     :tilemap_url => node.combined_default['festival-kibana']['tilemap.url'],
     :tilemap_options_maxzoom => node.combined_default['festival-kibana']['tilemap.options.maxZoom'],
     :tilemap_options_attribution => node.combined_default['festival-kibana']['tilemap.options.attribution']
