@@ -4,6 +4,10 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
+execute 'add elastic GPG key' do
+  command 'wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | apt-key add -'
+end
+
 cookbook_file '/etc/apt/sources.list.d/kibana.list' do
   source 'kibana.list'
   owner 'root'
@@ -14,6 +18,10 @@ end
 
 apt_update 'Update the apt cache' do
   action :update
+end
+
+apt_package 'openjdk-8-jdk' do
+  action :install
 end
 
 apt_package 'kibana' do
